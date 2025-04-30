@@ -20,5 +20,5 @@ class PositionDao(id: EntityID<Int>) : IntEntity(id) {
     var buytimestamp by PositionTable.buytimestamp
     var selltimestamp by PositionTable.selltimestamp
 
-    val details by PositionDetailDao referrersOn PositionDetailTable.positionId
+//    val details by PositionDetailDao referrersOn PositionDetailTable.positionId
 }

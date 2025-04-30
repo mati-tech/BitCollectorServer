@@ -17,6 +17,7 @@ application {
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -34,6 +35,13 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-dao:0.59.0") // Update this
     implementation("org.jetbrains.exposed:exposed-jdbc:0.59.0")
     implementation("org.jetbrains.exposed:exposed-java-time:0.59.0")
+
+    implementation("org.springframework.security:spring-security-core:5.6.2")
+
+    implementation("io.ktor:ktor-server-auth:3.1.2")
+    implementation("io.ktor:ktor-server-auth-jwt:3.1.2")
+    implementation("com.auth0:java-jwt:4.4.0")
+
 
     implementation(libs.ktor.server.netty)
     implementation(libs.logback.classic)

@@ -14,12 +14,25 @@ import java.sql.DriverManager
 import org.jetbrains.exposed.sql.*
 
 
+//fun Application.configureDatabases() {
+//    Database.connect(
+//        "jdbc:postgresql://localhost:5432/bitcollecter_db",
+//        user = "postgres",
+//        password = "@Mati2025"
+//    )
+//}
 fun Application.configureDatabases() {
-    Database.connect(
-        "jdbc:postgresql://localhost:5432/bitcollecter_db",
-        user = "postgres",
-        password = "@Mati2025"
-    )
+
+//    Database.connect(
+//        "jdbc:postgresql://localhost:5432/bitcollecter_db",
+//        user = "postgres",
+//        password = "@Mati2025"
+//    )
+    val url = "jdbc:postgresql://ep-silent-glitter-a4i8oit5-pooler.us-east-1.aws.neon.tech:5432/bitcollector?sslmode=require"
+    val user = "neondb_owner"
+    val password = "npg_H8McLqjXbiD9"
+    Database.connect(url, driver = "org.postgresql.Driver", user = user, password = password)
+
 }
 fun Application.connectToPostgres(embedded: Boolean): Connection {
     Class.forName("org.postgresql.Driver")

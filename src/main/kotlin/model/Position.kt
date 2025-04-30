@@ -5,14 +5,15 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Position(
     val id: Int,
+    val user_id: Int,
     val coin: String,
-    val buyPrice: Double,
+    val buy_price: Double,
     val amount: Double,
-    val valueUsd: Double,
-    val hasDetails: Boolean = false,
-    val sellPrice: Double? = null,
-    val positionPnl: Double = 0.0,
-    val buyTimestamp: Long,
-    val sellTimestamp: Long? = null,
-    val userId: Int? = null
+    val value_usd: Double,
+    val has_details: Boolean = false,
+    val sell_price: Double? = null,
+    val position_pnl: Double = 0.0,
+    val buytimestamp: Long,
+    val selltimestamp: Long? = null,
+
 )
