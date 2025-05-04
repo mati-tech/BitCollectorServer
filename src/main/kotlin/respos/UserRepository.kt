@@ -15,9 +15,6 @@ class UserRepository : UserIntRepos {
                 email = user.email
                 password = user.password
                 fullName = user.full_name
-                role  = user.role
-                registeredAt = user.registered_at
-
             }.toUser()
         }
     }
@@ -51,9 +48,6 @@ class UserRepository : UserIntRepos {
                 email = user.email
                 password = user.password
                 fullName = user.full_name
-                role = user.role
-                // Update the registeredAt timestamp if needed
-                registeredAt = user.registered_at
             }
             true
         }
@@ -76,12 +70,10 @@ class UserRepository : UserIntRepos {
     }
 
     private fun UserDao.toUser() = User(
-        id = id.value,
+        id = this.id.value,
         email = email,
         password = password,
         full_name = fullName,
-        role = role,
-        registered_at = registeredAt,
     )
 }
 

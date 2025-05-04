@@ -20,10 +20,10 @@ fun Application.configureRouting() {
         }
     }
     routing {
-        get("/") {
-            call.respondText("Hello World!")
-        }
+//        get("/") {
+//            call.respondText("Hello World!")
+//        }
         // Static plugin. Try to access `/static/index.html`
-        staticResources("/static", "static")
+        staticResources("/", "static")
     }
 }

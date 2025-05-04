@@ -1,5 +1,6 @@
 package com.mati.routing
 
+import com.mati.model.ApiResponse
 import com.mati.model.User
 import com.mati.model.UserLoginRequest
 import com.mati.respos.UserIntRepos
@@ -23,7 +24,7 @@ fun Application.configureUserRouting(repository: UserIntRepos) {
 
                 // Check if user already exists by email
                 if (repository.userExistsByEmail(user.email)) {
-                    call.respond(HttpStatusCode.Conflict, "User already exists")
+                    call.respond(HttpStatusCode.Conflict, ApiResponse("User already exists"))
                     return@post
                 }
 
@@ -34,10 +35,10 @@ fun Application.configureUserRouting(repository: UserIntRepos) {
                 val newUser = user.copy(password = hashedPassword, role = "user") // Set role to "user"
                 repository.createUser(newUser)
 
-                call.respond(HttpStatusCode.Created, "Registered successfully")
+                call.respond(HttpStatusCode.Created, ApiResponse("Registered successfully"))
             } catch (e: Exception) {
                 println("Registration error: ${e.message}")
-                call.respond(HttpStatusCode.BadRequest, "Invalid registration data")
+                call.respond(HttpStatusCode.BadRequest, ApiResponse("Invalid registration data"))
             }
         }
 

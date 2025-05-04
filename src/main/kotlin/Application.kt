@@ -14,6 +14,7 @@ import io.ktor.server.auth.jwt.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.ktor.server.plugins.contentnegotiation.*
+import kotlinx.serialization.json.Json
 
 fun main(args: Array<String>) {
 //    io.ktor.server.netty.EngineMain.main(args)
@@ -23,10 +24,14 @@ fun main(args: Array<String>) {
 
 fun Application.module() {
     install(ContentNegotiation){
-        json()
+        json(
+            Json {
+                prettyPrint = true
+                isLenient = true
+                ignoreUnknownKeys = true
+            }
+        )
     }
-
-
 
     val userRepository = UserRepository()
     val positionRepository = PositionRepository()
